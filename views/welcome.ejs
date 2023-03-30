@@ -1,0 +1,64 @@
+<%-include('header')-%>
+
+    <!-- Backgrounds -->
+
+    <div id="login-bg" class="container-fluid">
+
+        <div class="bg-img"></div>
+        <div class="bg-color"></div>
+      </div>
+  
+      <!-- End Backgrounds -->
+  
+      <div class="container" id="login">
+          <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="home-login">
+  
+              <h1>Welcome</h1>
+              
+              <!-- Loging form -->
+                    <form>
+                      <p ><% if(locals.user) {%>
+                        <h6><%=locals.user %></h6>
+                        <% } else { %>
+                        <h6>User,</h6><% } %>
+                         sign in successful !
+                        </p>
+                      <br>
+                     <a href="/logout" class="btn btn-lg btn-block btn-success">Sign out</a>
+                    </form>
+               <!-- End Loging form -->
+  
+            </div>
+          </div>
+          </div>
+      </div>
+
+
+      <section>
+        <div class="grid-container" id="grid-container">
+          <% watchData.forEach(function(items) { %>
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="<%= items.img %>" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><%= items.title %></h5>
+                <p class="card-text"><%= items.des %></p>
+                <a href="#" class="btn btn-warning"><%= items.price %></a>
+              </div>
+            </div>
+          <% }); %>
+          </div>
+       
+        
+      </section>
+
+      <!--disable the back press functionality in browser!-->
+
+      <script>    
+      window.history.pushState(null, null, window.location.href);
+      window.onpopstate = function () {
+          window.history.go(1);
+          };</script>
+  
+  <%-include('footer')-%>

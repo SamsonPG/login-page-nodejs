@@ -1,0 +1,48 @@
+
+    <%-include('header')-%>
+    
+    <!-- Backgrounds -->
+
+    <div id="login-bg" class="container-fluid">
+
+        <div class="bg-img"></div>
+        <div class="bg-color"></div>
+      </div>
+  
+      <!-- End Backgrounds -->
+  
+      <div class="container" id="login">
+          <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="home-login">
+  
+              <h1>Login</h1>
+              
+              <!-- Loging form -->
+                    <form>
+                    
+                      <br>
+                     <div id="alertt">
+                     <%if(locals.logout){%>
+                        <div id="sucs" class="p-3 alter alert-success text-center" >
+                            <%= logout %>
+                        </div>
+                        <% } %>
+                    </div>    
+                     <a href="/Tologin" class="btn btn-lg btn-block btn-success">Go to Login</a>
+                    </form>
+               <!-- End Loging form -->
+  
+            </div>
+          </div>
+          </div>
+      </div>
+      <script>
+        setTimeout(()=>{
+          document.getElementById('sucs').style.display='none'
+        },2000)
+      </script>
+
+  
+  
+    <%-include('footer')-%>
